@@ -88,11 +88,11 @@ export default function Portfolio() {
       {/* About */}
       <section className="px-6 py-20 bg-white" data-aos="fade-up">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <img
+          {/* <img
             src="/anh.jpg"
             alt="Avatar"
             className="w-full max-w-sm rounded-3xl shadow mx-auto"
-          />
+          /> */}
           <div>
             <h3 className="text-4xl font-bold mb-4 flex items-center gap-2 text-indigo-500">
               <User /> Giới Thiệu
