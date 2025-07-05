@@ -111,33 +111,33 @@ export default function ModernPortfolio() {
   const skills = [
     {
       name: "HTML & CSS",
-      level: 95,
-      color: "bg-gradient-to-r from-orange-400 to-red-500",
+      tag: "Frontend",
+      icon: <Code2 className="w-5 h-5 text-orange-400" />,
     },
     {
       name: "JavaScript",
-      level: 88,
-      color: "bg-gradient-to-r from-yellow-400 to-orange-500",
+      tag: "Frontend",
+      icon: <Zap className="w-5 h-5 text-yellow-400" />,
     },
     {
       name: "React JS",
-      level: 85,
-      color: "bg-gradient-to-r from-blue-400 to-cyan-500",
+      tag: "Frontend",
+      icon: <Rocket className="w-5 h-5 text-blue-400" />,
     },
     {
       name: "TailwindCSS",
-      level: 90,
-      color: "bg-gradient-to-r from-teal-400 to-blue-500",
+      tag: "UI/UX",
+      icon: <Star className="w-5 h-5 text-teal-400" />,
     },
     {
       name: "PHP",
-      level: 80,
-      color: "bg-gradient-to-r from-purple-400 to-pink-500",
+      tag: "Backend",
+      icon: <Globe className="w-5 h-5 text-purple-400" />,
     },
     {
       name: "C# (.NET)",
-      level: 78,
-      color: "bg-gradient-to-r from-indigo-400 to-purple-500",
+      tag: "Backend",
+      icon: <Code2 className="w-5 h-5 text-indigo-400" />,
     },
   ];
 
@@ -356,9 +356,9 @@ export default function ModernPortfolio() {
               </div>
 
               <p className="text-white/80 text-lg leading-relaxed">
-                Là một developer đam mê với hơn 2 năm kinh nghiệm, tôi chuyên
-                tạo ra những trải nghiệm web hiện đại và tối ưu. Luôn học hỏi
-                công nghệ mới và thích thú với những thách thức trong lập trình.
+                Là một developer , tôi chuyên tạo ra những trải nghiệm web hiện
+                đại và tối ưu. Luôn học hỏi công nghệ mới và thích thú với những
+                thách thức trong lập trình.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -487,19 +487,15 @@ export default function ModernPortfolio() {
                 className="group p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
-                    {skill.name}
-                  </h3>
-                  <span className="text-white/60 font-medium">
-                    {skill.level}%
+                  <div className="flex items-center gap-3">
+                    {skill.icon}
+                    <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                      {skill.name}
+                    </h3>
+                  </div>
+                  <span className="px-3 py-0.5 text-sm rounded-lg bg-cyan-500/20 text-cyan-400 font-medium">
+                    {skill.tag}
                   </span>
-                </div>
-
-                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full ${skill.color} rounded-full transition-all duration-1000 delay-300`}
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
                 </div>
               </div>
             ))}
