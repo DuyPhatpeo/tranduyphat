@@ -38,6 +38,7 @@ export default function ModernPortfolio() {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typeSpeed, setTypeSpeed] = useState(150);
+  const [activeSection, setActiveSection] = useState("");
 
   const roles = ["Lập Trình Website", "Thiết Kế UI"];
 
@@ -69,6 +70,26 @@ export default function ModernPortfolio() {
 
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentRole, typeSpeed]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 150; // Cộng thêm để bắt chính xác giữa section
+
+      sections.forEach((section) => {
+        if (
+          section.offsetTop <= scrollPos &&
+          section.offsetTop + section.offsetHeight > scrollPos
+        ) {
+          setActiveSection(section.getAttribute("id"));
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { label: "Trang Chủ", href: "#home" },
@@ -168,7 +189,8 @@ export default function ModernPortfolio() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+            {/* Logo */}
+            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent cursor-pointer">
               Dino Péo
             </div>
 
@@ -178,10 +200,25 @@ export default function ModernPortfolio() {
                 <a
                   key={i}
                   href={item.href}
-                  className="relative text-gray-700 hover:text-black transition-colors duration-300 group font-medium"
+                  className={`relative font-medium transition-colors duration-300 group ${
+                    activeSection === item.href.replace("#", "")
+                      ? "text-cyan-600"
+                      : "text-gray-700 hover:text-black"
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(item.href);
+                    target?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 transition-all duration-300 ${
+                      activeSection === item.href.replace("#", "")
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
                 </a>
               ))}
             </div>
@@ -203,8 +240,17 @@ export default function ModernPortfolio() {
                   <a
                     key={i}
                     href={item.href}
-                    className="block text-gray-700 hover:text-black transition-colors font-medium"
-                    onClick={() => setIsMenuOpen(false)}
+                    className={`block font-medium transition-colors ${
+                      activeSection === item.href.replace("#", "")
+                        ? "text-cyan-600"
+                        : "text-gray-700 hover:text-black"
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false);
+                      const target = document.querySelector(item.href);
+                      target?.scrollIntoView({ behavior: "smooth" });
+                    }}
                   >
                     {item.label}
                   </a>
@@ -574,7 +620,7 @@ export default function ModernPortfolio() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-orange-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-orange-500 bg-clip-text text-transparent leading-tight">
               Liên Hệ
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -593,10 +639,10 @@ export default function ModernPortfolio() {
               },
               {
                 icon: Phone,
-                label: "Điện Thoại",
+                label: "Zalo",
                 value: "0866 482 834",
-                href: "tel:0866482834",
-                color: "text-green-500",
+                href: "https://zalo.me/0866482834",
+                color: "text-blue-500",
               },
               {
                 icon: Github,
