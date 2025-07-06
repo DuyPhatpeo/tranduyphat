@@ -30,7 +30,7 @@ import {
   Download,
   Send,
 } from "lucide-react";
-
+import { motion } from "framer-motion";
 export default function ModernPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentRole, setCurrentRole] = useState(0);
@@ -81,7 +81,7 @@ export default function ModernPortfolio() {
   const projects = [
     {
       name: "ShopFSTYLE",
-      desc: "Website thương mại điện tử hiện đại với giao diện responsive, quản lý sản phẩm thông minh và hệ thống thanh toán an toàn.",
+      desc: "Website thương mại điện tử hiện đại với giao diện responsive, quản lý sản phẩm thông minh và đặt hàng sản phẩm.",
       tech: ["HTML", "PHP", "MySQL", "JavaScript"],
       link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
       image:
@@ -90,7 +90,7 @@ export default function ModernPortfolio() {
     },
     {
       name: "Đặt Vé Xem Phim",
-      desc: "Hệ thống đặt vé xem phim trực tuyến với tính năng chọn ghế trực quan, thanh toán online và quản lý lịch chiếu.",
+      desc: "Hệ thống đặt vé xem phim trực tuyến với tính năng chọn ghế trực quan và quản lý lịch chiếu.",
       tech: ["HTML", "JavaScript", "PHP", "CSS"],
       link: "https://github.com/nguyenduydan/Website_BanVeXemPhim",
       image:
@@ -101,7 +101,7 @@ export default function ModernPortfolio() {
       name: "Portfolio Website",
       desc: "Website portfolio cá nhân với thiết kế hiện đại, tối ưu SEO và trải nghiệm người dùng mượt mà.",
       tech: ["React", "TailwindCSS", "JavaScript"],
-      link: "#",
+      link: "https://github.com/DuyPhatpeo/tranduyphat",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
       category: "Portfolio",
@@ -112,32 +112,47 @@ export default function ModernPortfolio() {
     {
       name: "HTML & CSS",
       tag: "Frontend",
-      icon: <Code2 className="w-5 h-5 text-orange-400" />,
+      icon: <i className="devicon-html5-plain colored text-3xl"></i>,
     },
     {
       name: "JavaScript",
       tag: "Frontend",
-      icon: <Zap className="w-5 h-5 text-yellow-400" />,
+      icon: <i className="devicon-javascript-plain colored text-3xl"></i>,
     },
     {
       name: "React JS",
       tag: "Frontend",
-      icon: <Rocket className="w-5 h-5 text-blue-400" />,
+      icon: <i className="devicon-react-original colored text-3xl"></i>,
     },
     {
       name: "TailwindCSS",
       tag: "UI/UX",
-      icon: <Star className="w-5 h-5 text-teal-400" />,
+      icon: <i className="devicon-tailwindcss-original colored text-3xl"></i>,
+    },
+    {
+      name: "Bootstrap",
+      tag: "UI/UX",
+      icon: <i className="devicon-bootstrap-plain colored text-3xl"></i>,
     },
     {
       name: "PHP",
       tag: "Backend",
-      icon: <Globe className="w-5 h-5 text-purple-400" />,
+      icon: <i className="devicon-php-plain colored text-3xl"></i>,
     },
     {
       name: "C# (.NET)",
       tag: "Backend",
-      icon: <Code2 className="w-5 h-5 text-indigo-400" />,
+      icon: <i className="devicon-csharp-plain colored text-3xl"></i>,
+    },
+    {
+      name: "Git & GitHub",
+      tag: "Others",
+      icon: <i className="devicon-git-plain colored text-3xl"></i>,
+    },
+    {
+      name: "MySQL",
+      tag: "Backend",
+      icon: <i className="devicon-mysql-plain colored text-3xl"></i>,
     },
   ];
 
@@ -318,36 +333,52 @@ export default function ModernPortfolio() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-gray-400" />
+        <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+          onClick={() => {
+            const aboutSection = document.getElementById("about");
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <ChevronDown className="w-8 h-8 text-gray-400 hover:text-cyan-500 transition-colors duration-300" />
         </div>
       </section>
 
       {/* About Section */}
       <section
         id="about"
-        className="py-20 bg-gradient-to-b from-white to-gray-50"
+        className="min-h-screen flex items-center bg-gradient-to-b from-white to-gray-50 py-20 relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Background Shape Nhẹ Nhàng */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute w-48 h-48 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-ping top-1/3 left-1/4"></div>
+          <div className="absolute w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse bottom-0 right-1/3"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent animate-fade-in leading-tight">
               Giới Thiệu
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Khám phá câu chuyện và hành trình phát triển của tôi
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-300/20 to-blue-300/20 rounded-3xl blur-2xl"></div>
+            {/* Avatar Có Glow Khi Hover */}
+            <div className="relative flex justify-center group">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-300/20 to-blue-300/20 rounded-3xl blur-2xl group-hover:blur-3xl transition duration-500"></div>
               <img
                 src="/avt2.jpg"
                 alt="About Me"
-                className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl"
+                className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
+            {/* Thông Tin */}
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
                 <User className="w-8 h-8 text-cyan-500" />
@@ -362,6 +393,7 @@ export default function ModernPortfolio() {
                 thách thức trong lập trình.
               </p>
 
+              {/* Thông Tin Cá Nhân */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { icon: Calendar, label: "Sinh ngày", value: "28/10/2003" },
@@ -371,7 +403,7 @@ export default function ModernPortfolio() {
                 ].map(({ icon: Icon, label, value }, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 p-3 bg-gray-100 rounded-lg shadow-sm"
+                    className="flex items-center gap-3 p-4 bg-gray-100 rounded-lg shadow-sm hover:scale-105 hover:bg-white transition-transform duration-300"
                   >
                     <Icon className="w-5 h-5 text-cyan-500" />
                     <div>
@@ -382,6 +414,7 @@ export default function ModernPortfolio() {
                 ))}
               </div>
 
+              {/* Thành Tích */}
               <div className="flex flex-wrap gap-4 pt-6">
                 {[
                   { icon: Trophy, label: "5+ Dự Án", color: "text-yellow-500" },
@@ -394,13 +427,18 @@ export default function ModernPortfolio() {
                 ].map(({ icon: Icon, label, color }, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full shadow-sm"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full shadow-sm hover:scale-105 hover:bg-white transition-transform duration-300"
                   >
                     <Icon className={`w-5 h-5 ${color}`} />
                     <span className="text-gray-700 font-medium">{label}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Câu Quote Cá Tính */}
+              <p className="italic text-gray-500 text-center pt-4">
+                "Không ngừng sáng tạo - Không ngại thử thách"
+              </p>
             </div>
           </div>
         </div>
@@ -409,24 +447,29 @@ export default function ModernPortfolio() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 bg-gradient-to-b from-white to-gray-50"
+        className="py-20 bg-gradient-to-b from-white to-gray-50 min-h-screen"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent leading-tight">
               Dự Án Tiêu Biểu
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Khám phá những dự án tôi đã tạo ra với đam mê và sự sáng tạo
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl border border-gray-200 transition-all duration-500 hover:scale-105"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-200 transition-transform duration-500 hover:scale-105"
               >
+                {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-300/10 to-blue-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative p-6">
@@ -456,14 +499,14 @@ export default function ModernPortfolio() {
                     {project.tech.map((tech, j) => (
                       <span
                         key={j}
-                        className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-xs font-medium"
+                        className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-xs font-medium hover:bg-cyan-100 transition"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -476,15 +519,16 @@ export default function ModernPortfolio() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent leading-tight">
               Kỹ Năng Chuyên Môn
             </h2>
+
             <p className="text-gray-600 max-w-2xl mx-auto">
               Những công nghệ và kỹ năng tôi thành thạo
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill, i) => (
               <div
                 key={i}
