@@ -147,13 +147,13 @@ export default function ModernPortfolio() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrollY > 50
-            ? "bg-black/80 backdrop-blur-md border-b border-white/10"
+            ? "bg-white/90 backdrop-blur-md border-b border-gray-200 shadow"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
               Dino Péo
             </div>
 
@@ -163,17 +163,17 @@ export default function ModernPortfolio() {
                 <a
                   key={i}
                   href={item.href}
-                  className="relative text-white/80 hover:text-white transition-colors duration-300 group"
+                  className="relative text-gray-700 hover:text-black transition-colors duration-300 group font-medium"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden"
+              className="md:hidden text-gray-700"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -182,13 +182,13 @@ export default function ModernPortfolio() {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-b border-white/10">
+            <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md">
               <div className="px-6 py-4 space-y-4">
                 {navItems.map((item, i) => (
                   <a
                     key={i}
                     href={item.href}
-                    className="block text-white/80 hover:text-white transition-colors"
+                    className="block text-gray-700 hover:text-black transition-colors font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -203,45 +203,44 @@ export default function ModernPortfolio() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-cyan-50"
       >
         {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-teal-900/20"></div>
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-300/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-6">
-              <Sparkles className="w-6 h-6 text-cyan-400 animate-pulse" />
-              <span className="text-cyan-400 font-medium tracking-wider uppercase">
+              <Sparkles className="w-6 h-6 text-cyan-500 animate-pulse" />
+              <span className="text-cyan-500 font-medium tracking-wider uppercase">
                 Xin chào! Tôi là
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
                 Trần Duy Phát
               </span>
             </h1>
 
             <div className="h-16 mb-8">
-              <div className="text-xl md:text-2xl font-medium text-white/80 flex items-center justify-center md:justify-start gap-2">
-                <Zap className="w-6 h-6 text-yellow-400" />
+              <div className="text-xl md:text-2xl font-medium text-gray-700 flex items-center justify-center md:justify-start gap-2">
+                <Zap className="w-6 h-6 text-yellow-500" />
                 <span className="min-w-0 flex items-center">
                   <span className="font-mono">{displayedText}</span>
-                  <span className="ml-1 animate-pulse text-cyan-400 font-bold">
+                  <span className="ml-1 animate-pulse text-cyan-500 font-bold">
                     |
                   </span>
                 </span>
               </div>
             </div>
 
-            <p className="text-lg text-white/70 mb-8 max-w-lg mx-auto md:mx-0">
+            <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
               Tôi tạo ra những trải nghiệm web đẹp mắt và tương tác cao, biến ý
               tưởng thành hiện thực với công nghệ hiện đại.
             </p>
@@ -249,14 +248,14 @@ export default function ModernPortfolio() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
               <a
                 href="#projects"
-                className="group px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center gap-2 justify-center"
+                className="group px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center gap-2 justify-center"
               >
                 Xem Dự Án
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#contact"
-                className="px-8 py-3 border border-white/20 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:scale-105 flex items-center gap-2 justify-center"
+                className="px-8 py-3 border border-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-gray-100 hover:scale-105 flex items-center gap-2 justify-center text-gray-700"
               >
                 <Send className="w-4 h-4" />
                 Liên Hệ
@@ -269,7 +268,7 @@ export default function ModernPortfolio() {
                 {
                   icon: Facebook,
                   href: "https://www.facebook.com/DinoPeo2810",
-                  color: "hover:text-blue-500",
+                  color: "hover:text-blue-600",
                 },
                 {
                   icon: Youtube,
@@ -279,12 +278,12 @@ export default function ModernPortfolio() {
                 {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/ph%C3%A1t-tr%E1%BA%A7n-2741542b2/",
-                  color: "hover:text-blue-400",
+                  color: "hover:text-blue-500",
                 },
                 {
                   icon: Github,
                   href: "https://github.com/DuyPhatpeo",
-                  color: "hover:text-gray-300",
+                  color: "hover:text-black",
                 },
               ].map(({ icon: Icon, href, color }, i) => (
                 <a
@@ -292,7 +291,7 @@ export default function ModernPortfolio() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-110 hover:bg-white/10 ${color}`}
+                  className={`p-3 rounded-full bg-white shadow border border-gray-200 transition-all duration-300 hover:scale-110 text-black ${color}`}
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -304,14 +303,14 @@ export default function ModernPortfolio() {
           <div className="flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-              <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-sm">
+              <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
                 <img
                   src="/avt2.jpg"
                   alt="Trần Duy Phát"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce shadow-md">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
@@ -320,28 +319,28 @@ export default function ModernPortfolio() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-white/40" />
+          <ChevronDown className="w-8 h-8 text-gray-400" />
         </div>
       </section>
 
       {/* About Section */}
       <section
         id="about"
-        className="py-20 bg-gradient-to-b from-black to-gray-900"
+        className="py-20 bg-gradient-to-b from-white to-gray-50"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
               Giới Thiệu
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Khám phá câu chuyện và hành trình phát triển của tôi
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-300/20 to-blue-300/20 rounded-3xl blur-2xl"></div>
               <img
                 src="/avt2.jpg"
                 alt="About Me"
@@ -351,12 +350,14 @@ export default function ModernPortfolio() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
-                <User className="w-8 h-8 text-cyan-400" />
-                <h3 className="text-2xl font-bold">Trần Duy Phát (Dino Péo)</h3>
+                <User className="w-8 h-8 text-cyan-500" />
+                <h3 className="text-2xl font-bold text-gray-800">
+                  Trần Duy Phát (Dino Péo)
+                </h3>
               </div>
 
-              <p className="text-white/80 text-lg leading-relaxed">
-                Là một developer , tôi chuyên tạo ra những trải nghiệm web hiện
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Là một developer, tôi chuyên tạo ra những trải nghiệm web hiện
                 đại và tối ưu. Luôn học hỏi công nghệ mới và thích thú với những
                 thách thức trong lập trình.
               </p>
@@ -370,12 +371,12 @@ export default function ModernPortfolio() {
                 ].map(({ icon: Icon, label, value }, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 p-3 bg-white/5 rounded-lg backdrop-blur-sm"
+                    className="flex items-center gap-3 p-3 bg-gray-100 rounded-lg shadow-sm"
                   >
-                    <Icon className="w-5 h-5 text-cyan-400" />
+                    <Icon className="w-5 h-5 text-cyan-500" />
                     <div>
-                      <p className="text-white/60 text-sm">{label}</p>
-                      <p className="text-white font-medium">{value}</p>
+                      <p className="text-gray-500 text-sm">{label}</p>
+                      <p className="text-gray-800 font-medium">{value}</p>
                     </div>
                   </div>
                 ))}
@@ -383,20 +384,20 @@ export default function ModernPortfolio() {
 
               <div className="flex flex-wrap gap-4 pt-6">
                 {[
-                  { icon: Trophy, label: "5+ Dự Án", color: "text-yellow-400" },
+                  { icon: Trophy, label: "5+ Dự Án", color: "text-yellow-500" },
                   {
                     icon: Target,
                     label: "100% Hài Lòng",
-                    color: "text-green-400",
+                    color: "text-green-500",
                   },
-                  { icon: Heart, label: "Đam Mê", color: "text-red-400" },
+                  { icon: Heart, label: "Đam Mê", color: "text-red-500" },
                 ].map(({ icon: Icon, label, color }, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full backdrop-blur-sm"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full shadow-sm"
                   >
                     <Icon className={`w-5 h-5 ${color}`} />
-                    <span className="text-white/80 font-medium">{label}</span>
+                    <span className="text-gray-700 font-medium">{label}</span>
                   </div>
                 ))}
               </div>
@@ -406,13 +407,16 @@ export default function ModernPortfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-black">
+      <section
+        id="projects"
+        className="py-20 bg-gradient-to-b from-white to-gray-50"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Dự Án Tiêu Biểu
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Khám phá những dự án tôi đã tạo ra với đam mê và sự sáng tạo
             </p>
           </div>
@@ -421,30 +425,30 @@ export default function ModernPortfolio() {
             {projects.map((project, i) => (
               <div
                 key={i}
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-105"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl border border-gray-200 transition-all duration-500 hover:scale-105"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-300/10 to-blue-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full text-cyan-400 text-sm font-medium">
+                    <span className="px-3 py-1 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-full text-cyan-600 text-sm font-medium">
                       {project.category}
                     </span>
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors duration-300"
+                      className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors duration-300"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4 text-gray-700" />
                     </a>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-cyan-600 transition-colors duration-300">
                     {project.name}
                   </h3>
 
-                  <p className="text-white/70 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                     {project.desc}
                   </p>
 
@@ -452,7 +456,7 @@ export default function ModernPortfolio() {
                     {project.tech.map((tech, j) => (
                       <span
                         key={j}
-                        className="px-3 py-1 bg-white/5 rounded-full text-white/80 text-xs font-medium"
+                        className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -468,14 +472,14 @@ export default function ModernPortfolio() {
       {/* Skills Section */}
       <section
         id="skills"
-        className="py-20 bg-gradient-to-b from-gray-900 to-black"
+        className="py-20 bg-gradient-to-b from-white to-gray-100"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
               Kỹ Năng Chuyên Môn
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Những công nghệ và kỹ năng tôi thành thạo
             </p>
           </div>
@@ -484,16 +488,16 @@ export default function ModernPortfolio() {
             {skills.map((skill, i) => (
               <div
                 key={i}
-                className="group p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500"
+                className="group p-6 bg-white rounded-2xl shadow border border-gray-200 hover:shadow-lg hover:scale-105 transition-all duration-500"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     {skill.icon}
-                    <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-800 group-hover:text-cyan-600 transition-colors duration-300">
                       {skill.name}
                     </h3>
                   </div>
-                  <span className="px-3 py-0.5 text-sm rounded-lg bg-cyan-500/20 text-cyan-400 font-medium">
+                  <span className="px-3 py-0.5 text-sm rounded-lg bg-cyan-100 text-cyan-600 font-medium">
                     {skill.tag}
                   </span>
                 </div>
@@ -504,17 +508,17 @@ export default function ModernPortfolio() {
       </section>
 
       {/* Education Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full mb-6">
-              <GraduationCap className="w-8 h-8 text-indigo-400" />
-              <h2 className="text-2xl font-bold text-white">Học Vấn</h2>
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full mb-6">
+              <GraduationCap className="w-8 h-8 text-indigo-500" />
+              <h2 className="text-2xl font-bold text-gray-800">Học Vấn</h2>
             </div>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Đại học Nha Trang - Ngành Công Nghệ Thông Tin
             </p>
-            <div className="mt-4 text-indigo-400 font-medium">2021 - 2025</div>
+            <div className="mt-4 text-indigo-500 font-medium">2021 - 2025</div>
           </div>
         </div>
       </section>
@@ -522,14 +526,14 @@ export default function ModernPortfolio() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="py-20 bg-gradient-to-b from-gray-900 to-black"
+        className="py-20 bg-gradient-to-b from-white to-gray-50"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-orange-500 bg-clip-text text-transparent">
               Liên Hệ
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Hãy kết nối và trao đổi về những dự án thú vị
             </p>
           </div>
@@ -541,21 +545,21 @@ export default function ModernPortfolio() {
                 label: "Email",
                 value: "phattranduy00@gmail.com",
                 href: "mailto:phattranduy00@gmail.com",
-                color: "text-red-400",
+                color: "text-red-500",
               },
               {
                 icon: Phone,
                 label: "Điện Thoại",
                 value: "0866 482 834",
                 href: "tel:0866482834",
-                color: "text-green-400",
+                color: "text-green-500",
               },
               {
                 icon: Github,
                 label: "GitHub",
                 value: "github.com/DuyPhatpeo",
                 href: "https://github.com/DuyPhatpeo",
-                color: "text-gray-300",
+                color: "text-gray-700",
               },
             ].map(({ icon: Icon, label, value, href, color }, i) => (
               <a
@@ -565,16 +569,16 @@ export default function ModernPortfolio() {
                 rel={
                   href.startsWith("http") ? "noopener noreferrer" : undefined
                 }
-                className="group p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-105"
+                className="group p-6 bg-white rounded-2xl shadow border border-gray-200 hover:shadow-lg transition-all duration-500 hover:scale-105"
               >
                 <div className="text-center">
                   <Icon
                     className={`w-8 h-8 ${color} mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                   />
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
                     {label}
                   </h3>
-                  <p className="text-white/70 group-hover:text-white transition-colors duration-300">
+                  <p className="text-gray-600 group-hover:text-cyan-500 transition-colors duration-300">
                     {value}
                   </p>
                 </div>
@@ -585,14 +589,14 @@ export default function ModernPortfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-black border-t border-white/10">
+      <footer className="py-8 bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-white/60">
+          <p className="text-gray-600">
             © 2025 Trần Duy Phát. Được tạo với{" "}
-            <Heart className="inline w-4 h-4 text-red-400 mx-1" /> và
-            <Coffee className="inline w-4 h-4 text-amber-400 mx-1" />
+            <Heart className="inline w-4 h-4 text-red-500 mx-1" /> và
+            <Coffee className="inline w-4 h-4 text-amber-500 mx-1" />
           </p>
-          <p className="text-white/40 text-sm mt-2">
+          <p className="text-gray-500 text-sm mt-2">
             Đam mê công nghệ • Không ngừng học hỏi • Tạo ra giá trị
           </p>
         </div>
