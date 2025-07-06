@@ -275,7 +275,7 @@ export default function ModernPortfolio() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left mt-12 md:mt-0">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-6">
               <Sparkles className="w-6 h-6 text-cyan-500 animate-pulse" />
               <span className="text-cyan-500 font-medium tracking-wider uppercase">
@@ -682,8 +682,17 @@ export default function ModernPortfolio() {
       <footer className="py-8 bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-gray-600">
-            © 2025 Trần Duy Phát. Được tạo với{" "}
-            <Heart className="inline w-4 h-4 text-red-500 mx-1" /> và
+            © 2025{" "}
+            <a
+              href="https://github.com/DuyPhatpeo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-600 font-medium transition-colors"
+            >
+              Trần Duy Phát
+            </a>
+            . Được tạo với{" "}
+            <Heart className="inline w-4 h-4 text-red-500 mx-1" /> và{" "}
             <Coffee className="inline w-4 h-4 text-amber-500 mx-1" />
           </p>
           <p className="text-gray-500 text-sm mt-2">
