@@ -12,9 +12,9 @@ Trang web giới thiệu bản thân, kỹ năng, dự án và thông tin liên 
 
 ## 🖥️ Cách chạy project
 
-``
+'''
 git clone https://github.com/DuyPhatpeo/tranduyphat.git
 cd tranduyphat
 npm install
 npm run dev
-''
+'''
