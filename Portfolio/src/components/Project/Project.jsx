@@ -31,6 +31,15 @@ export default function Project() {
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
       category: "Portfolio",
     },
+    {
+      name: "Dino Store",
+      desc: "Dino Store — ReactJS e-commerce hiện đại, chuẩn responsive mọi màn hình, quản lý sản phẩm sắc bén, trải nghiệm đặt hàng siêu mượt.",
+      tech: ["ReactJS", "Tailwind CSS"],
+      link: "https://github.com/DuyPhatpeo/DinoStore",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+      category: "E-commerce",
+    },
   ];
 
   return (
