@@ -7,22 +7,6 @@ import shopfstyle from "/public/shopfstyle.jpg";
 export default function Project() {
   const projects = [
     {
-      name: "ShopFSTYLE",
-      desc: "Website thương mại điện tử hiện đại với giao diện responsive, quản lý sản phẩm thông minh và đặt hàng sản phẩm.",
-      tech: ["PHP", "Bootstrap", "MySQL"],
-      link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
-      image: shopfstyle,
-      category: "E-commerce",
-    },
-    {
-      name: "Đặt Vé Xem Phim",
-      desc: "Hệ thống đặt vé xem phim trực tuyến với tính năng chọn ghế trực quan và quản lý lịch chiếu.",
-      tech: ["PHP", "MySQL"],
-      link: "https://github.com/nguyenduydan/Website_BanVeXemPhim",
-      image: "",
-      category: "Entertainment",
-    },
-    {
       name: "Portfolio Website",
       desc: "Website portfolio cá nhân với thiết kế hiện đại, tối ưu SEO và trải nghiệm người dùng mượt mà.",
       tech: ["ReactJS", "TailwindCSS"],
@@ -39,6 +23,22 @@ export default function Project() {
       demo: "https://dinostorevn.vercel.app/",
       image: dinostore,
       category: "E-commerce",
+    },
+    {
+      name: "ShopFSTYLE",
+      desc: "Website thương mại điện tử hiện đại với giao diện responsive, quản lý sản phẩm thông minh và đặt hàng sản phẩm.",
+      tech: ["PHP", "Bootstrap", "MySQL"],
+      link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
+      image: shopfstyle,
+      category: "E-commerce",
+    },
+    {
+      name: "D2P",
+      desc: "Hệ thống đặt vé xem phim trực tuyến với tính năng chọn ghế trực quan và quản lý lịch chiếu.",
+      tech: ["PHP", "MySQL"],
+      link: "https://github.com/nguyenduydan/Website_BanVeXemPhim",
+      image: "",
+      category: "Entertainment",
     },
   ];
 
