@@ -1,11 +1,22 @@
 import { ExternalLink, Monitor } from "lucide-react";
 import { motion } from "framer-motion";
-import dinostore from "/public/dinostore.jpg";
-import portfolio from "/public/portfolio.jpg";
-import shopfstyle from "/public/shopfstyle.jpg";
+import dinostore from "@assets/dinostore.jpg";
+import portfolio from "@assets/portfolio.jpg";
+import shopfstyle from "@assets/shopfstyle.jpg";
+import dinomovie from "@assets/dinomovie.png";
 
 export default function Project() {
   const projects = [
+    {
+      name: "Simple Movies",
+      desc: "Ứng dụng xem phim trực tuyến với giao diện hiện đại, phân trang, tìm kiếm phim nhanh chóng và responsive.",
+      tech: ["ReactJS", "TailwindCSS"],
+      link: "https://github.com/DuyPhatpeo/simple-movies",
+      demo: "https://dinomovie.vercel.app/",
+      image: dinomovie,
+      category: "Movie",
+    },
+
     {
       name: "Portfolio Website",
       desc: "Website portfolio cá nhân với thiết kế hiện đại, tối ưu SEO và trải nghiệm người dùng mượt mà.",
