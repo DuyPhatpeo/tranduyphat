@@ -4,7 +4,7 @@ import dinostore from "@assets/dinostore.jpg";
 import portfolio from "@assets/portfolio.jpg";
 import shopfstyle from "@assets/shopfstyle.jpg";
 import dinomovie from "@assets/dinomovie.png";
-import dinobot from "@assets/botdinodisscord.png";
+import dinobot from "@assets/dinobotweb.png";
 
 export default function Project() {
   const projects = [
