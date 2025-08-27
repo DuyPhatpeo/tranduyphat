@@ -4,11 +4,22 @@ import dinostore from "@assets/dinostore.jpg";
 import portfolio from "@assets/portfolio.jpg";
 import shopfstyle from "@assets/shopfstyle.jpg";
 import dinomovie from "@assets/dinomovie.png";
+import dinobot from "@assets/botdinodisscord.png";
 
 export default function Project() {
   const projects = [
     {
-      name: "Simple Movies",
+      name: "Dino Bot",
+      desc: "Discord bot thông minh và đa năng, hỗ trợ quản lý server, tiện ích fun và bảo mật.",
+      tech: ["NodeJS", "Discord.js"],
+      link: "https://github.com/DuyPhatpeo/DinoBotDiscord",
+      demo: "https://dinobotvn.vercel.app/",
+      image: dinobot, // nhớ import hoặc thêm ảnh preview bot
+      category: "Discord Bot",
+    },
+
+    {
+      name: "Dino Movie",
       desc: "Ứng dụng xem phim trực tuyến với giao diện hiện đại, phân trang, tìm kiếm phim nhanh chóng và responsive.",
       tech: ["ReactJS", "TailwindCSS"],
       link: "https://github.com/DuyPhatpeo/simple-movies",
