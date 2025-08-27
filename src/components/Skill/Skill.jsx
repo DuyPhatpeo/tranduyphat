@@ -42,7 +42,7 @@ export default function Skill() {
     },
     {
       name: "MySQL",
-      tag: "Backend",
+      tag: "Database",
       icon: <i className="devicon-mysql-plain colored text-3xl"></i>,
     },
   ];
