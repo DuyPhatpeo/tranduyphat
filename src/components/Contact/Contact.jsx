@@ -1,4 +1,4 @@
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import contactData from "@/data/contact";
 
 export default function Contact() {
   return (
@@ -17,29 +17,7 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: Mail,
-              label: "Email",
-              value: "phattranduy00@gmail.com",
-              href: "mailto:phattranduy00@gmail.com",
-              color: "text-red-500",
-            },
-            {
-              icon: Phone,
-              label: "Zalo",
-              value: "0866 482 834",
-              href: "https://zalo.me/0866482834",
-              color: "text-blue-500",
-            },
-            {
-              icon: MessageCircle,
-              label: "Message",
-              value: "facebook.com/DinoPeo2810",
-              href: "https://www.facebook.com/DinoPeo2810",
-              color: "text-indigo-500",
-            },
-          ].map(({ icon: Icon, label, value, href, color }, i) => (
+          {contactData.map(({ icon: Icon, label, value, href, color }, i) => (
             <a
               key={i}
               href={href}

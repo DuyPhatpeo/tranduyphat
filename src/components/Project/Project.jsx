@@ -1,26 +1,29 @@
 import { ExternalLink, Monitor } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 import dinostore from "@assets/dinostore.jpg";
 import portfolio from "@assets/portfolio.jpg";
 import shopfstyle from "@assets/shopfstyle.jpg";
 import dinomovie from "@assets/dinomovie.png";
 import dinobot from "@assets/dinobotweb.png";
 
+import ProjectFilter from "./ProjectFilter";
+
 export default function Project() {
   const projects = [
     {
       name: "Dino Movie",
-      desc: "Ứng dụng xem phim trực tuyến với giao diện hiện đại, phân trang, tìm kiếm phim nhanh chóng và responsive.",
+      desc: "Ứng dụng xem phim trực tuyến...",
       tech: ["ReactJS", "TailwindCSS"],
       link: "https://github.com/DuyPhatpeo/simple-movies",
       demo: "https://dinomovie.vercel.app/",
       image: dinomovie,
       category: "Movie",
     },
-
     {
       name: "Portfolio Website",
-      desc: "Website portfolio cá nhân với thiết kế hiện đại, tối ưu SEO và trải nghiệm người dùng mượt mà.",
+      desc: "Website portfolio cá nhân...",
       tech: ["ReactJS", "TailwindCSS"],
       link: "https://github.com/DuyPhatpeo/tranduyphat",
       demo: "https://tranduyphat.vercel.app/",
@@ -29,16 +32,16 @@ export default function Project() {
     },
     {
       name: "Dino Bot",
-      desc: "Discord bot thông minh và đa năng, hỗ trợ quản lý server, tiện ích fun và bảo mật.",
+      desc: "Discord bot thông minh...",
       tech: ["NodeJS", "Discord.js"],
       link: "https://github.com/DuyPhatpeo/DinoBotDiscord",
       demo: "https://dinobotvn.vercel.app/",
-      image: dinobot, // nhớ import hoặc thêm ảnh preview bot
+      image: dinobot,
       category: "Discord Bot",
     },
     {
       name: "Dino Store",
-      desc: "ReactJS e-commerce hiện đại, responsive mọi màn hình, quản lý sản phẩm sắc bén, trải nghiệm đặt hàng siêu mượt.",
+      desc: "ReactJS e-commerce hiện đại...",
       tech: ["ReactJS", "TailwindCSS"],
       link: "https://github.com/DuyPhatpeo/DinoStore",
       demo: "https://dinostorevn.vercel.app/",
@@ -47,7 +50,7 @@ export default function Project() {
     },
     {
       name: "ShopFSTYLE",
-      desc: "Website thương mại điện tử hiện đại với giao diện responsive, quản lý sản phẩm thông minh và đặt hàng sản phẩm.",
+      desc: "Website thương mại điện tử...",
       tech: ["PHP", "Bootstrap", "MySQL"],
       link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
       image: shopfstyle,
@@ -55,7 +58,7 @@ export default function Project() {
     },
     {
       name: "D2P",
-      desc: "Hệ thống đặt vé xem phim trực tuyến với tính năng chọn ghế trực quan và quản lý lịch chiếu.",
+      desc: "Hệ thống đặt vé xem phim...",
       tech: ["PHP", "MySQL"],
       link: "https://github.com/nguyenduydan/Website_BanVeXemPhim",
       image: "",
@@ -63,14 +66,22 @@ export default function Project() {
     },
   ];
 
+  const categories = ["All", ...new Set(projects.map((p) => p.category))];
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
+
   return (
     <section
       id="projects"
       className="py-20 bg-gradient-to-b from-white to-gray-50 min-h-screen"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent leading-tight">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
             Dự Án Tiêu Biểu
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -78,8 +89,16 @@ export default function Project() {
           </p>
         </div>
 
+        {/* Filter */}
+        <ProjectFilter
+          categories={categories}
+          selected={selectedCategory}
+          onSelect={setSelectedCategory}
+        />
+
+        {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, i) => (
+          {filteredProjects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
@@ -127,7 +146,6 @@ export default function Project() {
 
               {/* Content */}
               <div className="p-6 flex flex-col h-full">
-                {/* Tech badges */}
                 <div className="flex flex-wrap gap-2 mb-3">
                   {project.tech.map((item, idx) => (
                     <span
