@@ -2,77 +2,34 @@ import { ExternalLink, Monitor } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-import dinostore from "@assets/dinostore.jpg";
-import portfolio from "@assets/portfolio.jpg";
-import shopfstyle from "@assets/shopfstyle.jpg";
-import dinomovie from "@assets/dinomovie.png";
-import dinobot from "@assets/dinobotweb.png";
+import { projects as allProjects } from "@/data/projects"; // import từ data/projects
 
 import ProjectFilter from "./ProjectFilter";
 
 export default function Project() {
-  const projects = [
-    {
-      name: "Dino Movie",
-      desc: "Ứng dụng xem phim trực tuyến...",
-      tech: ["ReactJS", "TailwindCSS"],
-      link: "https://github.com/DuyPhatpeo/simple-movies",
-      demo: "https://dinomovie.vercel.app/",
-      image: dinomovie,
-      category: "Movie",
-    },
-    {
-      name: "Portfolio Website",
-      desc: "Website portfolio cá nhân...",
-      tech: ["ReactJS", "TailwindCSS"],
-      link: "https://github.com/DuyPhatpeo/tranduyphat",
-      demo: "https://tranduyphat.vercel.app/",
-      image: portfolio,
-      category: "Portfolio",
-    },
-    {
-      name: "Dino Bot",
-      desc: "Discord bot thông minh...",
-      tech: ["NodeJS", "Discord.js"],
-      link: "https://github.com/DuyPhatpeo/DinoBotDiscord",
-      demo: "https://dinobotvn.vercel.app/",
-      image: dinobot,
-      category: "Discord Bot",
-    },
-    {
-      name: "Dino Store",
-      desc: "ReactJS e-commerce hiện đại...",
-      tech: ["ReactJS", "TailwindCSS"],
-      link: "https://github.com/DuyPhatpeo/DinoStore",
-      demo: "https://dinostorevn.vercel.app/",
-      image: dinostore,
-      category: "E-commerce",
-    },
-    {
-      name: "ShopFSTYLE",
-      desc: "Website thương mại điện tử...",
-      tech: ["PHP", "Bootstrap", "MySQL"],
-      link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
-      image: shopfstyle,
-      category: "E-commerce",
-    },
-    {
-      name: "D2P",
-      desc: "Hệ thống đặt vé xem phim...",
-      tech: ["PHP", "MySQL"],
-      link: "https://github.com/nguyenduydan/Website_BanVeXemPhim",
-      image: "",
-      category: "Entertainment",
-    },
+  // Danh sách ảnh mặc định (stock images)
+  const placeholderImages = [
+    "https://source.unsplash.com/400x200/?technology",
+    "https://source.unsplash.com/400x200/?coding",
+    "https://source.unsplash.com/400x200/?laptop",
+    "https://source.unsplash.com/400x200/?web",
+    "https://source.unsplash.com/400x200/?app",
+    "https://source.unsplash.com/400x200/?design",
   ];
 
-  const categories = ["All", ...new Set(projects.map((p) => p.category))];
+  const categories = ["All", ...new Set(allProjects.map((p) => p.category))];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects =
     selectedCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === selectedCategory);
+
+  // Hàm chọn random ảnh
+  const getRandomPlaceholder = () => {
+    const index = Math.floor(Math.random() * placeholderImages.length);
+    return placeholderImages[index];
+  };
 
   return (
     <section
@@ -110,7 +67,7 @@ export default function Project() {
               {/* Image */}
               <div className="relative overflow-hidden">
                 <img
-                  src={project.image || "https://via.placeholder.com/400x200"}
+                  src={project.image || getRandomPlaceholder()}
                   alt={project.name}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />

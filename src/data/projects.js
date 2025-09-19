@@ -6,6 +6,15 @@ import dinobot from "@assets/dinobotweb.png";
 
 export const projects = [
   {
+    name: "Dino Blogging",
+    desc: "Nền tảng blog cá nhân với quản lý bài viết, danh mục, và người dùng.",
+    tech: ["ReactJS", "Styled-Components", "Firebase"],
+    link: "https://github.com/DuyPhatpeo/dino-blogging",
+    demo: "https://dinoblogging.vercel.app/",
+    image: "",
+    category: "Blog",
+  },
+  {
     name: "Dino Movie",
     desc: "Ứng dụng xem phim trực tuyến...",
     tech: ["ReactJS", "TailwindCSS"],
