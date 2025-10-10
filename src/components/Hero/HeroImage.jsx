@@ -1,5 +1,3 @@
-import avatar from "@assets/avt2.jpg";
-
 export default function HeroImage() {
   return (
     <div className="flex justify-center">
@@ -7,7 +5,7 @@ export default function HeroImage() {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
         <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
           <img
-            src={avatar}
+            src="/avt2.jpg"
             alt="Trần Duy Phát"
             className="w-full h-full object-cover"
           />

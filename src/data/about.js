@@ -9,12 +9,10 @@ import {
   Calendar,
 } from "lucide-react";
 
-import avatar from "@assets/avt2.jpg";
-
 export const aboutData = {
   name: "Trần Duy Phát (Dino Péo)",
   bio: "Là một developer, tôi chuyên tạo ra những trải nghiệm web hiện đại và tối ưu. Luôn học hỏi công nghệ mới và thích thú với những thách thức trong lập trình.",
-  avatar,
+  avatar: "/avt2.jpg",
   personal: [
     { icon: Calendar, label: "Sinh ngày", value: "28/10/2003" },
     { icon: MapPin, label: "Đến từ", value: "Nha Trang" },

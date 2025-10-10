@@ -1,9 +1,3 @@
-import dinostore from "@assets/dinostore.jpg";
-import portfolio from "@assets/portfolio.jpg";
-import shopfstyle from "@assets/shopfstyle.jpg";
-import dinomovie from "@assets/dinomovie.png";
-import dinobot from "@assets/dinobotweb.png";
-
 export const projects = [
   {
     name: "Dino Blogging",
@@ -20,7 +14,7 @@ export const projects = [
     tech: ["ReactJS", "TailwindCSS"],
     link: "https://github.com/DuyPhatpeo/simple-movies",
     demo: "https://dinomovie.vercel.app/",
-    image: dinomovie,
+    image: "/dinomovie.png",
     category: "Movie",
   },
   {
@@ -29,7 +23,7 @@ export const projects = [
     tech: ["ReactJS", "TailwindCSS"],
     link: "https://github.com/DuyPhatpeo/tranduyphat",
     demo: "https://tranduyphat.vercel.app/",
-    image: portfolio,
+    image: "/portfolio.jpg",
     category: "Portfolio",
   },
   {
@@ -38,7 +32,7 @@ export const projects = [
     tech: ["NodeJS", "Discord.js"],
     link: "https://github.com/DuyPhatpeo/DinoBotDiscord",
     demo: "https://dinobotvn.vercel.app/",
-    image: dinobot,
+    image: "/dinobotweb.png",
     category: "Discord Bot",
   },
   {
@@ -47,7 +41,7 @@ export const projects = [
     tech: ["ReactJS", "TailwindCSS"],
     link: "https://github.com/DuyPhatpeo/DinoStore",
     demo: "https://dinostorevn.vercel.app/",
-    image: dinostore,
+    image: "/dinostore.jpg",
     category: "E-commerce",
   },
   {
@@ -55,7 +49,7 @@ export const projects = [
     desc: "Website thương mại điện tử...",
     tech: ["PHP", "Bootstrap", "MySQL"],
     link: "https://github.com/DuyPhatpeo/ShopFSTYLE",
-    image: shopfstyle,
+    image: "/shopfstyle.jpg",
     category: "E-commerce",
   },
   {
