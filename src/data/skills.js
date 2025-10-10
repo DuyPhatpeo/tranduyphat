@@ -10,6 +10,11 @@ export const skills = [
     icon: "devicon-javascript-plain colored",
   },
   {
+    name: "TypeScript",
+    tag: "Frontend",
+    icon: "devicon-typescript-plain colored",
+  },
+  {
     name: "React JS",
     tag: "Frontend",
     icon: "devicon-react-original colored",
